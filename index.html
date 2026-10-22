@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#17120f">
+  <meta name="description" content="Papas Locas: el sabor que provoca volver. Pide tus papas con pollo crocante y bebidas bien frías.">
+  <title>Papas Locas | Sabor que provoca</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="contenedor barra">
+    <a class="logo" href="#">PAPAS <span>LOCAS.</span></a>
+    <button class="boton-carrito" onclick="irAlCarrito()">
+      Mi pedido (<span id="contador">0</span>)
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO SECTION -->
+  <section class="contenedor hero">
+    <div>
+      <span class="etiqueta">SABOR QUE PROVOCA</span>
+      <h1>Papas locas: <span>El antojo que no perdona.</span></h1>
+      <p>
+        Papas bien doradas, pollo crocante, queso derretido y nuestras salsas secretas. Pide en 3 clics y te lo llevamos calientito hasta la puerta.
+      </p>
+      <a class="boton-principal" href="#menu">Ver el menú y babear</a>
+    </div>
+    <img src="img/papas_locas.jpg" alt="Plato de Papas Locas con queso derretido" fetchpriority="high">
+  </section>
+
+  <!-- MENÚ SECTION -->
+  <section class="contenedor seccion" id="menu">
+    <span class="etiqueta">HECHO PARA DISFRUTAR Y COMPARTIR</span>
+    <h2>Nuestras Delicias</h2>
+    <p class="subtitulo">Elige tus favoritos y agrégalos a tu pedido.</p>
+
+    <div class="productos">
+      <article class="producto">
+        <!-- STICKER VISUAL -->
+        <span class="sticker">🔥 EL MÁS PEDIDO</span>
+        
+        <img src="img/plato_pollo.jpg" alt="Papas Locas de pollo crujiente" loading="lazy">
+        <div class="producto-contenido">
+          <h3>Papas Locas de pollo crujientes</h3>
+          <p>El combo que te salva el día: una base de papas fritas bien cargadas, montañas de pollo crocante, choclo dulce, queso fundido y un baño de nuestra salsa estrella. (Ideal para compartir... o no, no juzgamos).</p>
+          <div class="producto-pie">
+            <span class="precio">Bs 38</span>
+            <button class="boton-agregar" onclick="agregarAlCarrito('papas-pollo')">
+              + Añadir a mi antojo
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="categoria">Para bajar la sed</h3>
+    <p class="subtitulo">Unas papas locas piden a gritos algo frío. Elige tu tamaño y prepárate.</p>
+
+    <!-- SECCIÓN DE BEBIDAS (Solo 3 opciones de 250ml) -->
+    <div class="productos bebidas">
+      
+      <!-- COCA-COLA 250ML -->
+      <article class="producto bebida">
+        <div class="bebida-icono" aria-hidden="true">
+          <img src="img/coca-250.png" alt="Coca-Cola 250 ml" loading="lazy" onerror="this.style.display='none'; this.parentNode.innerHTML='🥤';">
+        </div>
+        <div class="producto-contenido">
+          <h3>Coca-Cola 250 ml</h3>
+          <div class="producto-pie">
+            <span class="precio">Bs 5</span>
+            <button class="boton-agregar" onclick="agregarAlCarrito('coca-250')">+ Agregar</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- FANTA 250ML -->
+      <article class="producto bebida">
+        <div class="bebida-icono" aria-hidden="true">
+          <img src="img/fanta-250.png" alt="Fanta 250 ml" loading="lazy" onerror="this.style.display='none'; this.parentNode.innerHTML='🍊';">
+        </div>
+        <div class="producto-contenido">
+          <h3>Fanta 250 ml</h3>
+          <div class="producto-pie">
+            <span class="precio">Bs 5</span>
+            <button class="boton-agregar" onclick="agregarAlCarrito('fanta-250')">+ Agregar</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- SPRITE 250ML -->
+      <article class="producto bebida">
+        <div class="bebida-icono" aria-hidden="true">
+          <img src="img/sprite-250.png" alt="Sprite 250 ml" loading="lazy" onerror="this.style.display='none'; this.parentNode.innerHTML='🍋';">
+        </div>
+        <div class="producto-contenido">
+          <h3>Sprite 250 ml</h3>
+          <div class="producto-pie">
+            <span class="precio">Bs 5</span>
+            <button class="boton-agregar" onclick="agregarAlCarrito('sprite-250')">+ Agregar</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CARRITO SECTION -->
+  <section class="contenedor seccion" id="carrito">
+    <div class="carrito-panel">
+      <span class="etiqueta">TU SELECCIÓN</span>
+      <h2>Tu pedido</h2>
+
+      <div id="lista-carrito">
+        <p class="vacio">Aquí no hay nada todavía. ¡No dejes que te gane el antojo!</p>
+      </div>
+
+      <div class="resumen">
+        <div class="resumen-fila">
+          <span>Productos</span>
+          <span id="cantidad-total">0 unidades</span>
+        </div>
+        <div class="resumen-fila total">
+          <span>Total</span>
+          <span id="total-carrito">Bs 0.00</span>
+        </div>
+        <button class="boton-whatsapp" onclick="confirmarPedido()">
+          Finalizar mi pedido
+        </button>
+        <button class="boton-vaciar" onclick="vaciarCarrito()">
+          Vaciar carrito
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS Y CONTACTO -->
+  <section class="contenedor seccion">
+    <span class="etiqueta">LO QUE NOS HACE ESPECIALES</span>
+    <h2>¿Por qué somos los reyes del antojo?</h2>
+
+    <div class="beneficios">
+      <article class="beneficio">
+        <h3>Sabor de verdad</h3>
+        <p>Ingredientes reales, porciones generosas y salsas que te van a hacer chupar los dedos.</p>
+      </article>
+      <article class="beneficio">
+        <h3>Tú mandas</h3>
+        <p>Arma tu pedido a tu manera, revisa el total sin sorpresas y pide con confianza.</p>
+      </article>
+      <article class="beneficio">
+        <h3>Rapidito</h3>
+        <p>Del celular a tu mesa. Sin llamadas eternas ni apps complicadas.</p>
+      </article>
+    </div>
+
+    <div class="contacto">
+      <h2>¿Se te hizo agua la boca?</h2>
+      <p>No te aguantes las ganas. Mira todo lo que tenemos para ti.</p>
+      <a class="boton-principal" href="#menu">Ver productos</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="contenedor">© 2026 Papas Locas. Sabor que provoca.</div>
+</footer>
+
+<div id="aviso" hidden role="status" aria-live="polite"></div>
+
+</body>
+</html>
