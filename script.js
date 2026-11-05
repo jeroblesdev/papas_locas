@@ -142,7 +142,7 @@
     if (carrito.length === 0) { mostrarAviso("Primero agrega un producto"); return; }
 
     // ¡RECUERDA CAMBIAR ESTE NÚMERO POR EL DEL CLIENTE!
-    const numeroWhatsApp = "59162280649"; 
+    const numeroWhatsApp = "59163623723"; 
     if (!numeroWhatsApp) { mostrarAviso("Falta configurar el WhatsApp"); return; }
 
     let mensaje = "¡Hola! Quiero hacer este pedido:\n\n";
